@@ -1,0 +1,79 @@
+/* ===== COLOR + FONT VARIABLES: change a color here, it changes everywhere ===== */
+:root {
+  --black: #070707;
+  --black-soft: #111111;
+  --gold: #c9a96e;
+  --champagne: #f1e3c6;
+  --white: #fafafa;
+  --font-heading: "Cormorant Garamond", serif;
+  --font-body: "Jost", sans-serif;
+}
+
+/* ===== RESET: removes the browser's default spacing ===== */
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }   /* smooth scrolling when clicking nav links */
+
+body {
+  background: var(--black);
+  color: var(--white);
+  font-family: var(--font-body);
+  font-weight: 300;
+  line-height: 1.7;
+}
+
+a { text-decoration: none; }
+ul { list-style: none; }
+
+/* ===== SHARED SECTION STYLES ===== */
+.section { padding: 8rem 0; min-height: 80vh; }
+.container { width: min(1100px, 88%); margin: 0 auto; }
+
+.section-label {
+  color: var(--gold);
+  letter-spacing: 0.4em;
+  font-size: 0.85rem;
+}
+.section-title {
+  font-family: var(--font-heading);
+  font-size: clamp(2.4rem, 5vw, 4rem);
+  color: var(--champagne);
+  font-weight: 600;
+  margin-bottom: 3rem;
+}
+
+/* ===== BUTTON ===== */
+.btn {
+  display: inline-block;
+  padding: 0.9rem 2.4rem;
+  border: 1px solid var(--gold);
+  color: var(--gold);
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  font-size: 0.75rem;
+  transition: all 0.4s ease;
+}
+.btn:hover { background: var(--gold); color: var(--black); }
+
+/* ===== SCROLL REVEAL: elements start hidden, JS adds .visible ===== */
+.reveal {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 1s ease, transform 1s ease;
+}
+.reveal.visible { opacity: 1; transform: none; }
+
+.footer {
+  text-align: center;
+  padding: 2rem;
+  font-size: 0.8rem;
+  letter-spacing: 0.15em;
+  color: var(--gold);
+  border-top: 1px solid rgba(201, 169, 110, 0.2);
+}
+
+/* Respect people who turn off animations in their device settings */
+@media (prefers-reduced-motion: reduce) {
+  * { animation: none !important; transition: none !important; }
+  .reveal { opacity: 1; transform: none; }
+}

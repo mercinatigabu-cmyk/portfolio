@@ -1,0 +1,113 @@
+.hero {
+  position: relative;
+  min-height: 100vh;
+  overflow: hidden;              /* hides the photo edges while it moves */
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;     /* pushes the text to the RIGHT */
+}
+
+/* Outer layer: moved by JavaScript (mouse parallax) */
+.hero-parallax {
+  position: absolute;
+  inset: -3%;
+  transition: transform 0.8s ease-out;
+}
+
+/* Inner layer: your photo + the slow cinematic animation */
+.hero-bg {
+  width: 100%; height: 100%;
+  background: url("../images/mihret.jpg") no-repeat;
+  background-size: auto 100%;             /* fills the screen, keeps proportions */
+  background-position: left center;   /* keeps YOU on the left side */
+  animation: cinematic 26s ease-in-out infinite alternate;
+  will-change: transform;
+}/*flex-direction: row-reverse;   /* ← ADD THIS: swaps left and right */
+
+/* Slow zoom in/out with a tiny drift. "alternate" plays it forward, then backward. */
+@keyframes cinematic {
+  0%   { transform: scale(1)    translate(0, 0); }
+  50%  { transform: scale(1.07) translate(-1%, -0.8%); }
+  100% { transform: scale(1.13) translate(1%, 0.8%); }
+}
+
+/* Dark gradient: photo stays clear on the left, fades to black on the right */
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(90deg, rgba(7,7,7,0) 0%, rgba(7,7,7,0.3) 40%, rgba(7,7,7,0.92) 68%, #070707 100%),
+    linear-gradient(0deg, #070707 0%, rgba(7,7,7,0) 25%);
+}
+
+/* ===== TEXT ===== */
+.hero-content {
+  position: relative;
+  z-index: 2;
+  width: 48%;
+  padding-right: 6vw;
+}
+
+.hero-eyebrow {
+  color: var(--gold);
+  letter-spacing: 0.45em;
+  text-transform: uppercase;
+  font-size: 0.78rem;
+  margin-bottom: 1rem;
+}
+.hero-name {
+  font-family: var(--font-heading);
+  font-size: clamp(2.5rem, 6vw, 5.5rem);
+  font-weight: 700;
+  font-style: italic; 
+  line-height: 1;
+  color: var(--white);
+  letter-spacing: 0.04em;
+}
+/* Gold gradient text for the surname */
+.hero-name span {
+  display: block;
+  background: linear-gradient(110deg, #a8864a 20%, #fff6dc 40%, #f1e3c6 50%, #c9a96e 60%, #a8864a 80%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  animation: shine 6s linear infinite;
+}
+@keyframes shine {
+  0%   { background-position: 200% center; }
+  100% { background-position: -50% center; }
+}
+.hero-line {
+  width: 90px; height: 1px;
+  background: var(--gold);
+  margin: 1.8rem 0;
+}
+.hero-role {
+  font-family: var(--font-heading);
+  font-style: italic;
+  font-size: clamp(1.1rem, 2vw, 1.6rem);
+  color: var(--champagne);
+  margin-bottom: 2.5rem;
+}
+.hero-role .divider { color: var(--gold); margin: 0 0.5rem; font-style: normal; }
+
+/* ===== INTRO ANIMATION: each piece fades up one after another ===== */
+.hero-eyebrow, .hero-name, .hero-line, .hero-role, .hero .btn {
+  opacity: 0;
+  animation: fadeUp 1.2s ease forwards;
+}
+.hero-eyebrow { animation-delay: 0.3s; }
+.hero-name    { animation: fadeUp 1.2s ease 0.6s forwards,
+    floatName 6s ease-in-out 2s infinite; }
+    @keyframes floatName {
+  0%, 100% { transform: translateY(0); }
+  50%      { transform: translateY(-12px); }
+}
+.hero-line    { animation-delay: 1.0s; }
+.hero-role    { animation-delay: 1.3s; }
+.hero .btn    { animation-delay: 1.7s; }
+
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(30px); }
+  to   { opacity: 1; transform: translateY(0); }
+}

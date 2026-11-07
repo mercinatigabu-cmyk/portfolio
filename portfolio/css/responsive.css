@@ -1,0 +1,43 @@
+/* ===== TABLET ===== */
+@media (max-width: 992px) {
+  .hero-content { width: 55%; }
+  .nav-links { gap: 1.6rem; }
+}
+
+/* ===== PHONE ===== */
+@media (max-width: 768px) {
+  .nav-toggle { display: block; }
+
+  /* Menu slides in from the right */
+  .nav-links {
+    position: fixed;
+    top: 0; left: 0;
+    height: 100vh;
+    width: 70%;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 2.2rem;
+    background: #080808;
+    border-right: 1px solid rgba(201, 169, 110, 0.3);
+    transform: translateX(100%);
+    transition: transform 0.5s ease;
+  }
+  .nav-links.open { transform: translateX(0); }
+  .nav-links a { font-size: 0.9rem; }
+
+  /* Hero: photo on top, text at the bottom and centered */
+  .hero { align-items: flex-end; justify-content: center; }
+  .hero-bg { background-position: 25% top; }
+  .hero-overlay {
+    background: linear-gradient(0deg, #070707 0%, rgba(7,7,7,0.92) 38%, rgba(7,7,7,0) 70%);
+  }
+  .hero-content {
+    width: 100%;
+    padding: 0 6vw 4rem;
+    text-align: center;
+  }
+  .hero-line { margin-left: auto; margin-right: auto; }
+
+  .section { padding: 5rem 0; }
+}

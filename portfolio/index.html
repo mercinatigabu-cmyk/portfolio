@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mihret Tigabu | Frontend Developer</title>
+
+  <!-- Fonts: Cormorant Garamond (elegant headings) + Jost (clean text) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+
+  <!-- Our CSS files. ORDER MATTERS: base first, responsive last -->
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/navbar.css">
+  <link rel="stylesheet" href="css/hero.css">
+  <link rel="stylesheet" href="css/about.css">
+  <link rel="stylesheet" href="css/future.css">
+  <link rel="stylesheet" href="css/fun.css">
+  <link rel="stylesheet" href="css/journey.css">
+  <link rel="stylesheet" href="css/responsive.css">
+</head>
+
+<body>
+
+  <!-- ========== NAVIGATION BAR ========== -->
+  <header class="navbar" id="navbar">
+    <a href="#home" class="logo">M<span>T</span></a>
+
+    <!-- Hamburger button (only visible on phones) -->
+    <button class="nav-toggle" id="navToggle" aria-label="Open menu">
+      <span></span><span></span><span></span>
+    </button>
+
+    <nav>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="#about">About Me</a></li>
+        <li><a href="#future">Future Plans</a></li>
+        <li><a href="#fun">Fun</a></li>
+        <li><a href="#journey"> Journey</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+
+    <!-- ========== HOMEPAGE (HERO) ========== -->
+    <section class="hero" id="home">
+      <!-- Layer 1: the photo (JS moves the outer layer, CSS animates the inner one) -->
+      <div class="hero-parallax" id="heroParallax">
+        <div class="hero-bg"></div>
+      </div>
+      <!-- Layer 2: dark gradient so the text is readable -->
+      <div class="hero-overlay"></div>
+      <!-- Layer 3: the text -->
+      <div class="hero-content">
+        <p class="hero-eyebrow">Welcome to my portfolio</p>
+        <h1 class="hero-name">MIHRET <span>TIGABU</span></h1>
+        <div class="hero-line"></div>
+        <p class="hero-role">
+          Frontend Developer <span class="divider">|</span> Future Full-Stack Developer
+        </p>
+        <a href="#about" class="btn">Discover My Story</a>
+      </div>
+    </section>
+
+    <!-- ========== SECTION 1: ABOUT ME ========== -->
+    <section class="section about" id="about">
+      <div class="container">
+        <p class="section-label reveal">01</p>
+        <h2 class="section-title reveal">About Me</h2>
+        <p class="section-description reveal">
+           <h4>A Woman with Vision, Driven by Technology.</h4>
+
+<p>I am Mercy Tigabu, a Computer Science student, aspiring Frontend 
+Developer, and future Full-Stack Developer with a passion for 
+technology, creativity, and continuous growth.
+I believe technology is more than writing code; it is a powerful
+ tool for transforming ideas into meaningful solutions. My journey 
+ in Computer Science is driven by curiosity, determination, and the
+  desire to become an exceptional software developer. </p>
+
+ <p> I am strengthening my programming skills, exploring modern 
+    web technologies, building practical projects, and challenging 
+    myself to grow every </p>
+    
+        <!-- Content comes in the next step -->
+      </div>
+    </section>
+
+    <!-- ========== SECTION 2: FUTURE PLANS ========== -->
+    <section class="section future" id="future">
+      <div class="container">
+        <p class="section-label reveal">02</p>
+        <h2 class="section-title reveal">Future Plans</h2>
+        <p>
+            <h3> Building Today. Inspiring Tomorrow.</h3>
+
+My future is built around technology, innovation, independence, and continuous growth. I dream of becoming an exceptional Full-Stack Developer who creates meaningful digital solutions and makes a positive impact through technology.
+
+I am determined to grow beyond writing code. I want to become a creative problem-solver, a confident engineer, an innovative thinker, and a woman who inspires others through her work.
+</p>
+<h4>My Vision</h4>
+
+<p1>**01. Master Full-Stack Development**</p1>
+
+Develop strong expertise in frontend and backend technologies, databases, APIs, and modern software development practices.
+
+<p2>**02. Build Exceptional Projects**</p2>
+
+Transform creative ideas into real-world applications that solve problems and make people's lives easier.
+
+<p3>**03. Become a Professional Software Engineer**</p3>
+
+Work with talented developers, contribute to meaningful projects, and gain experience in the technology industry.
+
+<p4>**04. Become Financially Independent**</p4>
+
+Build a successful career through my technical knowledge, creativity, and dedication.
+
+<p5>**05. Inspire the Next Generation**</p5>
+
+Become a role model for young women, especially African girls who dream of entering the world of technology.
+
+**06. Never Stop Learning**
+
+Explore new technologies, embrace challenges, and continuously improve my technical and personal abilities.
+
+### My Ultimate Vision
+
+To become a highly skilled, internationally recognized software developer, build innovative technology, achieve financial independence, and inspire other women to believe in their abilities.
+
+**I am not waiting for the future. I am coding it, one day at a time.**</p>
+      </div>
+    </section>
+
+    <!-- ========== SECTION 3: FUN ========== -->
+    <section class="section fun" id="fun">
+      <div class="container">
+        <p class="section-label reveal">03</p>
+        <h2 class="section-title reveal">Fun</h2>
+      </div>
+    </section>
+
+    <!-- ========== SECTION 4: A LOVER'S JOURNEY ========== -->
+    <section class="section journey" id="journey">
+      <div class="container">
+        <p class="section-label reveal">04</p>
+        <h2 class="section-title reveal">A Lover's Journey</h2>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="footer">
+    <p>© 2026 Mihret Tigabu</p>
+  </footer>
+
+  <!-- JavaScript goes at the END so the page loads first -->
+  <script src="js/main.js"></script>
+</body>
+</html>

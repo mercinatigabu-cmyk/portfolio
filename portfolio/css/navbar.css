@@ -1,0 +1,84 @@
+.navbar {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%;
+  z-index: 100;
+  display: flex;
+  flex-direction: row-reverse;   /* ← ADD THIS: swaps left and right */
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.6rem 6vw;
+  transition: padding 0.4s ease;
+}
+
+/* The dark blurred background lives on ::before so it fades in smoothly
+   (and doesn't break the mobile menu) */
+.navbar::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: rgba(8, 8, 8, 0.88);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(201, 169, 110, 0.25);
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}
+.navbar.scrolled { padding: 1rem 6vw; }        /* JS adds this class */
+.navbar.scrolled::before { opacity: 1; }
+
+.logo {
+  font-family: var(--font-heading);
+  font-size: 1.9rem;
+  letter-spacing: 0.15em;
+  color: var(--white);
+}
+.logo span { color: var(--gold); }
+
+.nav-links { display: flex; gap: 2.6rem; }
+.nav-links a {
+  position: relative;
+  font-size: 0.75rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--champagne);
+  padding: 0.4rem 0;
+  transition: color 0.3s;
+}
+/* Gold underline that grows on hover */
+.nav-links a::after {
+  content: "";
+  position: absolute;
+  left: 0; bottom: 0;
+  width: 0; height: 1px;
+  background: var(--gold);
+  transition: width 0.35s ease;
+}
+.nav-links a:hover,
+.nav-links a.active { color: var(--gold); }
+.nav-links a:hover::after,
+.nav-links a.active::after { width: 100%; }
+
+/* Hamburger button (hidden on desktop, shown in responsive.css) */
+.nav-toggle {
+  display: none;
+  background: none;
+  border: none;
+  cursor: pointer;
+  width: 28px; height: 20px;
+  position: relative;
+  z-index: 110;
+}
+.nav-toggle span {
+  position: absolute;
+  left: 0; width: 100%; height: 1.5px;
+  background: var(--gold);
+  transition: all 0.3s ease;
+}
+.nav-toggle span:nth-child(1) { top: 0; }
+.nav-toggle span:nth-child(2) { top: 9px; }
+.nav-toggle span:nth-child(3) { top: 18px; }
+/* Turns into an X when open */
+.nav-toggle.open span:nth-child(1) { top: 9px; transform: rotate(45deg); }
+.nav-toggle.open span:nth-child(2) { opacity: 0; }
+.nav-toggle.open span:nth-child(3) { top: 9px; transform: rotate(-45deg); }
